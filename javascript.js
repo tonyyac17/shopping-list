@@ -24,3 +24,33 @@ button.addEventListener('click', () => {
     input.focus();
 
 });
+
+// function to calculate ticket price for zoo
+
+function calculate() {
+    let x = document.getElementById('price');
+
+    let isOver18 = confirm('Click OK if you are under 18');
+
+    if(isOver18 === true){
+        x.textContent = 'Discounted price: $10';
+    } else {
+        x.textContent = 'Regular Price: $15';
+    }
+}
+
+// function to calculate warranty
+
+function calculateWarranty() {
+    let basePrice = 20;
+    let x = document.getElementById('feature').checked;
+
+    if(feature){
+        let total = basePrice + 5;
+        document.getElementById('totalPrice').textContent = total;
+    } else {
+        document.getElementById('totalPrice').textContent = basePrice;
+    }
+
+
+}

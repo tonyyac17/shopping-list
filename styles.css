@@ -1,3 +1,7 @@
+body {
+    text-align: center;
+}
+
 li {
     margin-bottom: 10px;
 }
@@ -7,3 +11,22 @@ li button {
     font-size: 12px;
     color: #666;
 }
+
+h2 {
+    text-align: center;
+}
+
+.zoo {
+    text-align: center;
+}
+
+#btn {
+    background-position: center;
+    background-color: rgb(38, 199, 38);
+    border-radius: 5px;
+    font-size: 15px;
+    color: white;
+    border: none;
+    margin: 10px;
+}
+
