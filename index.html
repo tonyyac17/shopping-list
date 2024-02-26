@@ -43,12 +43,14 @@
                 <input type="email" id="email" name="email"><br>
 
                 <label for="subscribe">Subscribe to our newsletter</label>
-                <input type="checkbox" id="subscribe" name="subscribe">
+                <input type="checkbox" id="subscribe" name="subscribe"><br>
+
+                <button id="btn" onclick="getDatabaseInfo()">Submit</button>
             </form>
 
             <div id="table">
                 <h4>chinmusiK Database</h4>
-                <table>
+                <table id="dataTable">
                     <tr>
                         <th>Name</th>
                         <th>Email</th>

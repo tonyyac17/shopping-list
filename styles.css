@@ -26,3 +26,26 @@ li button {
     margin: 10px;
 }
 
+#table {
+    border: solid 2px;
+    background-color:rgb(119, 107, 79);
+    color: white;
+}
+
+#tableData {
+    background-color: rgb(179, 172, 156);
+    border-collapse: collapse;
+    color: white;
+    width: 50%;
+}
+
+tr, th {
+    border: solid 1px;
+    margin: 20px;
+    padding: 20px;
+
+}
+
+h3 {
+    text-align: center;
+}
