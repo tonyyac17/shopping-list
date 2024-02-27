@@ -54,16 +54,3 @@ function calculateWarranty() {
 
 
 }
-
-//function for form to create database for subscription list
-
-function getDatabaseInfo () {
-    let name = document.getElementById('name').value;
-    let email = document.getElementById('email').value;
-    let isSubscribed = document.getElementById('subscribe').checked;
-
-    dataTable.insertData(name, email, isSubscribed);
-
-    document.getElementById('name').value = '';
-    document.getElementById('email').value = '';
-};
