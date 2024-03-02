@@ -51,6 +51,27 @@ function calculateWarranty() {
     } else {
         document.getElementById('totalPrice').textContent = basePrice;
     }
-
-
 }
+
+// rate functions using the radio option
+
+let btn = document.getElementById('btnRate');
+let output = document.getElementById('output');
+
+btn.addEventListener('click', () => {
+    let rates = document.getElementsByName('rate');
+        rates.forEach((rate) => {
+            if(rate.checked){
+                output.innerText = `You selected: ${rate.value}`;
+            }
+        });
+    });
+
+// counting the headings function
+
+let btn1 = document.getElementById('btnCount');
+
+btn1.addEventListener('click', () => {
+    let headings = document.getElementsByTagName('h2');
+    alert(`The number of h2 headings in this document is: ${headings.length}`);
+})
