@@ -78,9 +78,17 @@ btn1.addEventListener('click', () => {
 
 // practicing my rock paper scissors game functions/event listeners
 
+const rock = document.getElementById('rock');
+const paper = document.getElementById('paper');
+const scissors = document.getElementById('scissors');
+const gameResult = document.getElementById('gameResult');
+rock.addEventListener('click', () => startRound('Rock'));
+paper.addEventListener('click', () => startRound('Paper'));
+scissors.addEventListener('click', () => startRound('Scissors'));
+
+
 let playerScore = 0
 let computerScore = 0
-const buttons = document.querySelectorAll('output');
 
 const playerSelection = 'Rock';
 let computerSelection = getComputerChoice();
@@ -88,15 +96,14 @@ console.log(playGame());
 
 function playGame () {
     while (!(playerScore === 5 || computerScore === 5)) {
-        computerSelection = getComputerChoice();
-        playRound(computerSelection, playerSelection);
+       computerSelection = getComputerChoice();
+       playRound(computerSelection, playerSelection);
     }
     console.log('Computer score: ' + computerScore + '. Player score: '+ playerScore)
 }
 
 function playRound (computerSelection, playerSelection){
     result = determineResult(playerSelection, computerSelection)
-    let output = ''
     if (result === 'win'){
         output = 'You won this round'
         playerScore++
@@ -121,6 +128,13 @@ function determineResult(playerSelection, computerSelection){
     }
 }
 
+function startRound(playerSelection){
+    computerSelection = getComputerChoice();
+    determineResult(playerSelection, computerSelection);
+    playRound(playerSelection, computerSelection);
+    gameResult.textContent = `Computer score: ${computerScore} Play score: ${playerScore}`
+}
+
 function getComputerChoice() {
     let randomNumber = Math.floor(Math.random()*3)
     switch (randomNumber) {
@@ -135,6 +149,5 @@ function getComputerChoice() {
             break;
         default:
             break;
-    
     }
 }
