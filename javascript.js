@@ -82,6 +82,7 @@ const rock = document.getElementById('rock');
 const paper = document.getElementById('paper');
 const scissors = document.getElementById('scissors');
 const gameResult = document.getElementById('gameResult');
+const scorePara = document.getElementById('scorePara');
 rock.addEventListener('click', () => startRound('Rock'));
 paper.addEventListener('click', () => startRound('Paper'));
 scissors.addEventListener('click', () => startRound('Scissors'));
@@ -90,25 +91,23 @@ scissors.addEventListener('click', () => startRound('Scissors'));
 let playerScore = 0
 let computerScore = 0
 
-const playerSelection = 'Rock';
+//const playerSelection = 'Rock';
 let computerSelection = getComputerChoice();
 console.log(playGame());
 
 function playGame () {
     while (!(playerScore === 5 || computerScore === 5)) {
        computerSelection = getComputerChoice();
-       playRound(computerSelection, playerSelection);
+       playRound(playerSelection, computerSelection);
     }
     console.log('Computer score: ' + computerScore + '. Player score: '+ playerScore)
 }
 
-function playRound (computerSelection, playerSelection){
+function playRound (playerSelection, computerSelection){
     result = determineResult(playerSelection, computerSelection)
     if (result === 'win'){
-        output = 'You won this round'
         playerScore++
     }else if (result === 'loss'){
-        output = 'You lost this round'
         computerScore++
     }
     return
@@ -116,15 +115,21 @@ function playRound (computerSelection, playerSelection){
 
 function determineResult(playerSelection, computerSelection){
     if(computerSelection === playerSelection){
+        scorePara.textContent = 'This round was a tie. Pick again'
         return 'tie'
+        
     } else if (
         (computerSelection === 'Rock' && playerSelection === 'Scissors')||
         (computerSelection === 'Scissors' && playerSelection === 'Paper')||
         (computerSelection === 'Paper' && playerSelection === 'Rock'))
     {
+        scorePara.textContent = `You picked ${playerSelection} and lost this round`
         return 'loss'
+        
     } else{
+        scorePara.textContent = `You won this round! ${playerSelection} beats ${computerSelection}!`
         return 'win'
+        
     }
 }
 
