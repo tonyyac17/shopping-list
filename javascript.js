@@ -75,3 +75,48 @@ btn1.addEventListener('click', () => {
     let headings = document.getElementsByTagName('h2');
     alert(`The number of h2 headings in this document is: ${headings.length}`);
 })
+
+// practicing my rock paper scissors game functions/event listeners
+
+let playerScore = 0
+let computerScore = 0
+const buttons = document.querySelectorAll('output');
+
+const playerSelection = 'Rock';
+let computerSelection = getComputerChoice();
+console.log(playGame());
+
+function playGame () {
+    while (!(playerScore === 5 || computerScore === 5)) {
+        computerSelection = getComputerChoice();
+        playRound(computerSelection, playerSelection);
+    }
+    console.log('Computer score: ' + computerScore + '. Player score: '+ playerScore)
+}
+
+function playRound (computerSelection, playerSelection){
+    result = determineResult(playerSelection, computerSelection)
+    let output = ''
+    if (result === 'win'){
+        output = 'You won this round'
+        playerScore++
+    }else if (result === 'loss'){
+        output = 'You lost this round'
+        computerScore++
+    }
+    return
+}
+
+function determineResult(playerSelection, computerSelection){
+    if(computerSelection === playerSelection){
+        return 'tie'
+    } else if (
+        (computerSelection === 'Rock' && playerSelection === 'Scissors')||
+        (computerSelection === 'Scissors' && playerSelection === 'Paper')||
+        (computerSelection === 'Paper' && playerSelection === 'Rock'))
+    {
+        return 'loss'
+    } else{
+        return 'win'
+    }
+}
