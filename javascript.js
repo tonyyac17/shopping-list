@@ -93,14 +93,22 @@ let computerScore = 0
 
 //const playerSelection = 'Rock';
 let computerSelection = getComputerChoice();
-console.log(playGame());
+//console.log(playGame());
 
-function playGame () {
-    while (!(playerScore === 5 || computerScore === 5)) {
-       computerSelection = getComputerChoice();
-       playRound(playerSelection, computerSelection);
+// function playGame () {
+//     while (!(playerScore === 5 || computerScore === 5)) {
+//        computerSelection = getComputerChoice();
+//        playRound(playerSelection, computerSelection);
+//     }
+//     console.log('Computer score: ' + computerScore + '. Player score: '+ playerScore)
+// }
+
+function gameOver () {
+    if(playerScore === 5) {
+        scorePara.textContent = 'You have won the game! Reload the page to play again.'
+    } else if(computerScore === 5) {
+        scorePara.textContent = 'You suck at this game. The computer wins. Try again after reloading the page.'
     }
-    console.log('Computer score: ' + computerScore + '. Player score: '+ playerScore)
 }
 
 function playRound (playerSelection, computerSelection){
@@ -138,6 +146,7 @@ function startRound(playerSelection){
     determineResult(playerSelection, computerSelection);
     playRound(playerSelection, computerSelection);
     gameResult.textContent = `Computer score: ${computerScore} Play score: ${playerScore}`
+    gameOver();
 }
 
 function getComputerChoice() {
