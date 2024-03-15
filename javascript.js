@@ -106,8 +106,12 @@ let computerSelection = getComputerChoice();
 function gameOver () {
     if(playerScore === 5) {
         scorePara.textContent = 'You have won the game! Reload the page to play again.'
+        playerScore = 0;
+        computerScore = 0;
     } else if(computerScore === 5) {
         scorePara.textContent = 'You suck at this game. The computer wins. Try again after reloading the page.'
+        playerScore = 0;
+        computerScore = 0;
     }
 }
 
